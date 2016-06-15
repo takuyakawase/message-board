@@ -17,6 +17,18 @@
   </div>
   <div class="panel-body">
   <%= form_for(@message) do |f| %>
+    <% if @message.errors.present? %>
+      <div class="alert alert-danger">
+        <%= alert %>
+        <ul>
+          <% @message.errors.full_messages.each do |full_message| %>
+            <li>
+              <%= full_message %>
+            </li>
+          <% end %> 
+        </ul>
+      </div>
+    <% end %>
     名前:<br>
     <%= f.text_area :name, :size => "20x1"  %><br>
     内容:<br>
