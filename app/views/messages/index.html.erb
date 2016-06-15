@@ -11,29 +11,36 @@
     <% end %>
   </div>
 </div>
-<div class="panel panel-default">
+
+<% #部分テンプレートを読み込んでいる %>
+<%= render 'form' %>
+
+
+
+
+<%#<div class="panel panel-default">
   <div class="panel-heading">
   入力フォーム
   </div>
   <div class="panel-body">
   <%= form_for(@message) do |f| %>
-    <% if @message.errors.present? %>
-      <div class="alert alert-danger">
+<%#    <% if @message.errors.present? %>
+<%#      <div class="alert alert-danger">
         <%= alert %>
-        <ul>
+<%#        <ul>
           <% @message.errors.full_messages.each do |full_message| %>
-            <li>
+<%#            <li>
               <%= full_message %>
-            </li>
+<%#            </li>
           <% end %> 
-        </ul>
+<%#        </ul>
       </div>
     <% end %>
-    名前:<br>
+<%#    名前:<br>
     <%= f.text_area :name, :size => "20x1"  %><br>
-    内容:<br>
+<%#    内容:<br>
     <%= f.text_area :body, :size => "20x1"  %><br>
-    <%= f.submit class: "btn btn-sm btn-danger active" %>
-  <% end %>
-  </div>
+<%#    <%= f.submit class: "btn btn-sm btn-danger active" %>
+<%#  <% end %>
+<%#  </div>
 </div>
