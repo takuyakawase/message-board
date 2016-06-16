@@ -7,6 +7,7 @@
     <% @messages.each do |message| %>
       <span class="label label-info"><%= message.name %></span>
       <%= message.body %>
+      (<%= link_to "edit" , edit_message_path(message) %>)
       <br>
     <% end %>
   </div>
@@ -14,33 +15,3 @@
 
 <% #部分テンプレートを読み込んでいる %>
 <%= render 'form' %>
-
-
-
-
-<%#<div class="panel panel-default">
-  <div class="panel-heading">
-  入力フォーム
-  </div>
-  <div class="panel-body">
-  <%= form_for(@message) do |f| %>
-<%#    <% if @message.errors.present? %>
-<%#      <div class="alert alert-danger">
-        <%= alert %>
-<%#        <ul>
-          <% @message.errors.full_messages.each do |full_message| %>
-<%#            <li>
-              <%= full_message %>
-<%#            </li>
-          <% end %> 
-<%#        </ul>
-      </div>
-    <% end %>
-<%#    名前:<br>
-    <%= f.text_area :name, :size => "20x1"  %><br>
-<%#    内容:<br>
-    <%= f.text_area :body, :size => "20x1"  %><br>
-<%#    <%= f.submit class: "btn btn-sm btn-danger active" %>
-<%#  <% end %>
-<%#  </div>
-</div>
